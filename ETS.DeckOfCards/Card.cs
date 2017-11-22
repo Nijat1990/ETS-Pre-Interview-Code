@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+
 
 namespace ETS.DeckOfCards
 {
@@ -115,6 +115,13 @@ namespace ETS.DeckOfCards
             }
         }
 
+        /// <summary>
+        /// Compares cureent Card object with other card for equality.
+        /// If the both Card object has same Suit and Rank values it is deemed equal
+        /// otherwise it is not equal.
+        /// </summary>
+        /// <param name="obj">Object to be compared</param>
+        /// <returns>true if equals with current card otherwise false</returns>
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -128,7 +135,10 @@ namespace ETS.DeckOfCards
                             && that.SuitValue == this.SuitValue);
         }
 
-
+        /// <summary>
+        /// Calculates hascode for the current Card object
+        /// </summary>
+        /// <returns>32 bit integer representation of hashcode</returns>
         public override int GetHashCode()
         {
             return _rank.GetHashCode() ^ _suit.GetHashCode();
