@@ -6,5 +6,7 @@ namespace ETS.DeckOfCards
 {
     class Deck
     {
+        IEnumerable<Card> _currentCardDeck;
+
     }
 }

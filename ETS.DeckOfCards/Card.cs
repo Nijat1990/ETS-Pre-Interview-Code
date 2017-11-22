@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ETS.DeckOfCards
 {
@@ -7,10 +8,10 @@ namespace ETS.DeckOfCards
     /// It has Rank and Suit value represented by Rank and Suit 
     /// enum type.  
     /// </summary>
-    public sealed class Card
+    public sealed class Card 
     {
-        private Rank _rank;
-        private Suit _suit;
+        private readonly Rank _rank;
+        private readonly Suit _suit;
 
         public int RankValue
         {
@@ -55,7 +56,7 @@ namespace ETS.DeckOfCards
             _suit = suit;
         }
 
-        // Validates if valid Card can be constructed given 
+        // Helper method that validates if valid Card can be constructed with given 
         // Rank and Suit enum type
         private bool IsValidCard(Rank rank, Suit suit)
         {
@@ -112,6 +113,25 @@ namespace ETS.DeckOfCards
                 case Suit.SPADE:   return "SPADE";
                 default:           return null;
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (obj.GetType() != this.GetType())
+                return false;
+            if (ReferenceEquals(obj, this))
+                return true;
+            Card that = obj as Card;
+            return (that.RankValue == this.RankValue 
+                            && that.SuitValue == this.SuitValue);
+        }
+
+
+        public override int GetHashCode()
+        {
+            return _rank.GetHashCode() ^ _suit.GetHashCode();
         }
     }
 }
