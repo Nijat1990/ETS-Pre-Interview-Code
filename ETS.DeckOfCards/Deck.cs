@@ -10,6 +10,11 @@ namespace ETS.DeckOfCards
         private readonly IList<Card> _currentCardDeck;
         private int _cardUsed;
 
+        /// <summary>
+        /// Number of Cards left in the Deck. 
+        /// </summary>
+        public int CardsLeft { get { return _currentCardDeck.Count - _cardUsed; } }
+
         public Deck()
         {
             _currentCardDeck = new List<Card>();
@@ -26,9 +31,6 @@ namespace ETS.DeckOfCards
             }
             _cardUsed = 0;
         }
-
-        public int CardsLeft { get { return _currentCardDeck.Count - _cardUsed; } }
-
 
         /// <summary>
         /// Shuffles the deck of cards  
@@ -55,7 +57,11 @@ namespace ETS.DeckOfCards
             a[j] = temp;
         }
 
-
+        /// <summary>
+        /// Returns one card to the caller. If the caller request more card than currently available
+        /// in the Deck, no card will be returned
+        /// </summary>
+        /// <returns>One Card will be returned</returns>
         public Card GetCard()
         {
             if (_cardUsed == _currentCardDeck.Count)
@@ -67,6 +73,12 @@ namespace ETS.DeckOfCards
             return ret;
         }
 
+        /// <summary>
+        /// Returns card at specified position in Deck.  If the caller requests more card than 
+        /// currently available in the Deck, no Card will be returned. 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Card GetCard(int index)
         {
             if(index < 0 || index >= _currentCardDeck.Count)
