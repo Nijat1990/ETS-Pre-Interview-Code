@@ -5,9 +5,12 @@ using System.Text;
 
 namespace ETS.DeckOfCards
 {
+    /// <summary>
+    /// Object of type Deck represents Deck of playing Cards without the Joker.
+    /// </summary>
     public class Deck
     {
-        private readonly IList<Card> _currentCardDeck;
+        private readonly List<Card> _currentCardDeck;
         private int _cardUsed;
 
         /// <summary>
@@ -20,9 +23,9 @@ namespace ETS.DeckOfCards
             _currentCardDeck = new List<Card>();
             int suitSize = Enum.GetNames(typeof(Suit)).Length;
             int rankSize = Enum.GetNames(typeof(Rank)).Length;
-            for(int s = 0; s < suitSize; s++)
+            for(int s = 1; s <= suitSize; s++)
             {
-                for(int r = 0; r < rankSize; r++)
+                for(int r = 1; r <= rankSize; r++)
                 {
                     Rank rank = (Rank)r;
                     Suit suit = (Suit)s;
@@ -50,7 +53,7 @@ namespace ETS.DeckOfCards
 
         // Helper class that swap the element at i-th index with 
         // with element at j-th index
-        private void Exchange(IList<Card> a, int i, int j)
+        private void Exchange(List<Card> a, int i, int j)
         {
             Card temp = a[i];
             a[i] = a[j];
@@ -96,5 +99,16 @@ namespace ETS.DeckOfCards
             return ret;
         }
 
+        /// <summary>
+        /// Provides enumration capabilites to the Deck object.
+        /// </summary>
+        /// <returns>Enumurator</returns>
+        public IEnumerator<Card> GetEnumerator()
+        {
+            foreach (var card in _currentCardDeck)
+                yield return card;
+        }
+
+       
     }
 }

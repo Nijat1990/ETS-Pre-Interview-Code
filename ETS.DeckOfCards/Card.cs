@@ -11,16 +11,24 @@ namespace ETS.DeckOfCards
     {
         private readonly Rank _rank;
         private readonly Suit _suit;
-
+        
+        /// <summary>
+        /// Returns integer representaion of Card's Rank
+        /// </summary>
         public int RankValue
         {
             get
             {
+                // returning integer representation of Rank value is necessary 
+                // since integer makes sorting and custom comparing capabilites easy
                 int rankVal = (int)_rank;
                 return rankVal;
             }
         }
 
+        /// <summary>
+        /// Returns integer representation of Card's Suit
+        /// </summary>
         public int SuitValue
         {
             get
@@ -47,24 +55,24 @@ namespace ETS.DeckOfCards
         /// <param name="suit">Suit of the card</param>
         public Card(Rank rank,  Suit suit )
         {
-            if(IsValidCard(rank, suit) == false)
-            {
-                throw new ArgumentException("Provided Rank and Suit does not constitute valid Card");
-            }
+        //    if(IsValidCard(rank, suit) == false)
+        //    {
+        //        throw new ArgumentException("Provided Rank and Suit does not constitute valid Card");
+        //    }
             _rank = rank;
             _suit = suit;
         }
 
         // Helper method that validates if valid Card can be constructed with given 
         // Rank and Suit enum type
-        private bool IsValidCard(Rank rank, Suit suit)
-        {
-            if (rank < Rank.ACE || rank > Rank.KING)
-                return false;
-            if (suit < Suit.CLUB || suit > Suit.SPADE)
-                return false;
-            return true;
-        }
+        //private bool IsValidCard(Rank rank, Suit suit)
+        //{
+        //    if (rank < Rank.ACE || rank > Rank.KING)
+        //        return false;
+        //    if (suit < Suit.CLUB || suit > Suit.SPADE)
+        //        return false;
+        //    return true;
+        //}
 
         /// <summary>
         /// Returns string representation of Card content 
@@ -110,7 +118,7 @@ namespace ETS.DeckOfCards
                 case Suit.DIAMOND: return "DIAMOND";
                 case Suit.HEART:   return "HEART";
                 case Suit.SPADE:   return "SPADE";
-                default:           return null;
+                default:           return "Null";
             }
         }
 
