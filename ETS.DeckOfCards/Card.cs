@@ -118,7 +118,7 @@ namespace ETS.DeckOfCards
                 case Suit.DIAMOND: return "DIAMOND";
                 case Suit.HEART:   return "HEART";
                 case Suit.SPADE:   return "SPADE";
-                default:           return "Null";
+                default:           return null;
             }
         }
 
