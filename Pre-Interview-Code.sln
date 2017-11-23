@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETS.DeckOfCards", "ETS.DeckOfCards\ETS.DeckOfCards.csproj", "{4DB7B84A-09C9-4122-9D69-6A0FAA00C15D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A60EB306-6398-43CC-91E9-365B2D8958C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETS.Test", "ETS.Test\ETS.Test.csproj", "{7B271B8B-B964-4A2A-B4CB-25A9E3E81CBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{4DB7B84A-09C9-4122-9D69-6A0FAA00C15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DB7B84A-09C9-4122-9D69-6A0FAA00C15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DB7B84A-09C9-4122-9D69-6A0FAA00C15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B271B8B-B964-4A2A-B4CB-25A9E3E81CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B271B8B-B964-4A2A-B4CB-25A9E3E81CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B271B8B-B964-4A2A-B4CB-25A9E3E81CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B271B8B-B964-4A2A-B4CB-25A9E3E81CBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B271B8B-B964-4A2A-B4CB-25A9E3E81CBE} = {A60EB306-6398-43CC-91E9-365B2D8958C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BAF15782-07F7-4D0D-936F-AC998EF22480}

@@ -20,13 +20,21 @@ namespace ETS.DeckOfCards
         /// </summary>
         /// <param name="id">Id of new Dealer</param>
         /// <param name="name">Name of new Dealer</param>
-        /// <param name="deck">Deck of new Dealer</param>
+        /// <param name="deck">Deck of card assigned</param>
         public ETSDealer(int? id, string name, Deck deck)
                : base(id, name, deck)
         {
             _hireDate = DateTime.Now;
         }
 
+        /// <summary>
+        /// Constructs ETSDealer type with provided hire date.
+        /// Note that hire date must be past time. 
+        /// </summary>
+        /// <param name="id">Id of new Dealer</param>
+        /// <param name="name">name of new Dealer</param>
+        /// <param name="deck">Deck of Cards assigned</param>
+        /// <param name="hireDate"></param>
         public ETSDealer(int? id, string name, Deck deck, DateTime hireDate)
                :base(id, name, deck)
         {
