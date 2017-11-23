@@ -29,7 +29,8 @@ namespace ETS.DeckOfCards
 
         /// <summary>
         /// Constructs ETSDealer type with provided hire date.
-        /// Note that hire date must be past time. 
+        /// Note that hire date must be past time and if it is NULL
+        /// Current time stamp will be the hire date.
         /// </summary>
         /// <param name="id">Id of new Dealer</param>
         /// <param name="name">name of new Dealer</param>
@@ -38,6 +39,11 @@ namespace ETS.DeckOfCards
         public ETSDealer(int? id, string name, Deck deck, DateTime hireDate)
                :base(id, name, deck)
         {
+           if(hireDate == null)
+            {
+                _hireDate = DateTime.Now;
+            }
+
            if(IsFutureDate(hireDate) == true)
             {
                 throw new ArgumentException("Hire Date cannot be a future date");
@@ -73,14 +79,14 @@ namespace ETS.DeckOfCards
         /// </summary>
         /// <param name="cardCount">Number of Cards to be dealed</param>
         /// <returns>List of Card objects</returns>
-        public IList<Card> DealCard(int cardCount)
+        public List<Card> DealCard(int cardCount)
         {
             if(cardCount < 0 || cardCount > base.Deck.CardsLeft)
             {
                 throw new ArgumentException("Card count is not valid");
             }
 
-            IList<Card> ret = new List<Card>();
+            List<Card> ret = new List<Card>();
             for(int i = 0; i < cardCount; i++)
             {
                 base.Deck.ShuffleDeck();

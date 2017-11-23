@@ -28,16 +28,17 @@ namespace ETS.DeckOfCards
        
 
         /// <summary>
-        /// Default Constructor
+        /// Default Constructor. Id must be non-negative and non-null integer.
+        /// Name and deck must not be null. 
         /// </summary>
         /// <param name="id">New Dealers Id</param>
         /// <param name="name">New Dealers Name</param>
         /// <param name="deck">New Dealers first assigned Deck</param>
         public Dealer(int? id, string name, Deck deck)
         {
-            if(id == null || name == null || deck == null)
+            if(id == null || id < 0  || name == null || deck == null)
             {
-                throw new ArgumentException("Null argument cannot be accpeted");
+                throw new ArgumentException("Provided arugument is invalid");
             }
             DealerId = id;
             Name = name;

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ETS.DeckOfCards;
+using System.Collections.Generic;
 
 namespace ETS.Test
 {
@@ -70,7 +71,31 @@ namespace ETS.Test
                 Console.WriteLine(c.ToString());
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void IndexdGetCardInvalid()
+        {
+            // Arrange
+            Deck deck = new Deck();
 
+            // Act 
+            deck.GetCard(53);
+        }
+
+        [TestMethod]
+        public void IndexdGetCardValid()
+        {
+            // Arrange
+            Deck deck = new Deck();
+            Card expected = new Card();
+
+            // Act 
+            Card actual = deck.GetCard(0);
+            bool result = expected.Equals(expected);
+
+            // Act 
+            Assert.IsTrue(result);
+        }
 
     }
 }
