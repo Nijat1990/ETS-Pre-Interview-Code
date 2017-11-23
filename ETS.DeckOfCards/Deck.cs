@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ETS.DeckOfCards
 {
-    public class Deck 
+    public class Deck
     {
         private readonly IList<Card> _currentCardDeck;
         private int _cardUsed;
@@ -95,5 +95,6 @@ namespace ETS.DeckOfCards
             _cardUsed++;
             return ret;
         }
+
     }
 }
