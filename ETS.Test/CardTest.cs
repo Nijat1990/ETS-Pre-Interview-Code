@@ -8,7 +8,7 @@ namespace ETS.Test
     public class CardTest
     {
         [TestMethod]
-        public void DefaultRankAndSuitValid()
+        public void Constructor_WithDefaultRankSuit_Valid()
         {
             // Arange
             Card card = new Card();
@@ -25,7 +25,7 @@ namespace ETS.Test
         }
 
         [TestMethod]
-        public void CustomeRankAndSuitValid()
+        public void Constructor_WithCustomRankSuit_Valid()
         {
             // Arange
             Card card = new Card(Rank.JACK, Suit.HEART);
@@ -43,7 +43,7 @@ namespace ETS.Test
 
 
         [TestMethod]
-        public void EqulasValid()
+        public void Equlas_WithDifferentObject_Valid()
         {
             // Arange
             Card card1 = new Card(Rank.JACK, Suit.HEART);
@@ -64,25 +64,24 @@ namespace ETS.Test
 
 
         [TestMethod]
-        public void EqulasInValid()
+        public void Equlas_WithDifferentOBject_Valid()
         {
             // Arange
             Card card1 = new Card(Rank.JACK, Suit.HEART);
             Card card2 = new Card(Rank.JACK, Suit.SPADE);
 
             // Act
-            bool result1 = card1.Equals(card2);
-            bool result2 = card2.Equals(card1);
+            bool result = card1.Equals(card2);
             int hash1 = card1.GetHashCode();
             int hash2 = card2.GetHashCode();
 
             // Assert
-            Assert.AreEqual(result1, result2);
+            Assert.IsFalse(result);
             Assert.AreNotEqual(hash1, hash2);
         }
 
         [TestMethod]
-        public void ToStringValid()
+        public void ToString_Content_Valid()
         {
             // Arange 
             Card card = new Card(Rank.JACK, Suit.HEART);

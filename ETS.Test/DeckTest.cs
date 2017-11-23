@@ -9,7 +9,7 @@ namespace ETS.Test
     public class DeckTest
     {
         [TestMethod]
-        public void DeckCreationValid()
+        public void Constructor_Initialization_Valid()
         {
             // Arrange
             Deck deck = new Deck();
@@ -27,7 +27,7 @@ namespace ETS.Test
 
 
         [TestMethod]
-        public void CardLeftValid()
+        public void CardLeft_UsesAllCard_ReturnsZero()
         {
             // Arrange
             Deck deck = new Deck();
@@ -46,7 +46,7 @@ namespace ETS.Test
 
 
         [TestMethod]
-        public void DefaultDeckPeek()
+        public void ToString_Unshuffled_Outputs()
         {
             // Arrange
             Deck deck = new Deck();
@@ -58,7 +58,7 @@ namespace ETS.Test
 
 
         [TestMethod]
-        public void ShuffledDeckPeek()
+        public void ToString_Shuffled_Outputs()
         {
             // Arrange
             Deck deck = new Deck();
@@ -73,7 +73,7 @@ namespace ETS.Test
 
         [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void IndexdGetCardInvalid()
+        public void GetCard_WithInvalidIndex_ThrowsException()
         {
             // Arrange
             Deck deck = new Deck();
@@ -83,7 +83,7 @@ namespace ETS.Test
         }
 
         [TestMethod]
-        public void IndexdGetCardValid()
+        public void GetCard_WithValidIndex_DefaultCardEquals()
         {
             // Arrange
             Deck deck = new Deck();

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ETS.DeckOfCards
+﻿namespace ETS.DeckOfCards
 {
     /// <summary>
     /// Enum type that represents Rank of standard 

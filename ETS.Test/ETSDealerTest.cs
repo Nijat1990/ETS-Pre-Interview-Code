@@ -9,7 +9,7 @@ namespace ETS.Test
     public class ETSDealerTest
     {
         [TestMethod]
-        public void ETSDealerCreationValid()
+        public void Constructor_Initialization_EqualsWithOutput()
         {
             // Arrange
             Deck deck = new Deck();
@@ -25,7 +25,7 @@ namespace ETS.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ETSDealerCreationInvalid0()
+        public void Constructor_WithNegativeId_ThrowsException()
         {
             // Arrange
             Deck deck = new Deck();
@@ -35,7 +35,7 @@ namespace ETS.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ETSDealerCreationInvalid1()
+        public void Constructor_WithNullId_ThrowsException()
         {
             // Arrange
             Deck deck = new Deck();
@@ -44,7 +44,7 @@ namespace ETS.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ETSDealerCreationInvalid2()
+        public void Constructor_WithNullName_ThrowsException()
         {
             // Arrange
             Deck deck = new Deck();
@@ -53,7 +53,7 @@ namespace ETS.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ETSDealerCreationInvalid3()
+        public void Constructor_WithNullDeck_ThrowsException()
         {
             // Arrange
             Deck deck = new Deck();
@@ -62,7 +62,7 @@ namespace ETS.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void FutureDateInvalid()
+        public void Constructor_WithFeatureDate_ThrowsException()
         {
             // Arrange
             DateTime future = new DateTime(2099, 1, 1);
@@ -70,7 +70,7 @@ namespace ETS.Test
         }
 
         [TestMethod]
-        public void DealOneCardValid()
+        public void DealOneCard_WithValidInit_ReturnsValidCard()
         {
             // Arrange
             ETSDealer dealer = new ETSDealer(9975, "Nijat", new Deck(), DateTime.Now);
@@ -82,7 +82,7 @@ namespace ETS.Test
         }
 
         [TestMethod]
-        public void DealMultipleCardValid0()
+        public void DealMultipleCard_DealsTenTimes_ReturnsValidState()
         {
             // Assert 
             ETSDealer dealer = new ETSDealer(9975, "Nijat", new Deck(), DateTime.Now);
@@ -103,7 +103,7 @@ namespace ETS.Test
 
 
         [TestMethod]
-        public void DealMultipleCardValid1()
+        public void DealMultipleCard_DealsAllCards_ReturnsNull()
         {
             // Assert 
             ETSDealer dealer = new ETSDealer(9975, "Nijat", new Deck(), DateTime.Now);
